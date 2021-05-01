@@ -103,3 +103,23 @@ func TestZWJEmoji(t *testing.T) {
 	assertLenRuneArr(t, emojis, 1)
 	assertEqual(t, womanShrugging, emojis[0])
 }
+
+func TestExample(t *testing.T) {
+	// create a trie with some string search values
+	trie := NewTrieString("foo", "bar", "foobar", "one")
+
+	// search the use the trie to search a string
+	results := trie.SearchString("there should be one foo, one bar, one foobar, and four 'one's in this string")
+	// results == [one foo one bar one foobar one]
+
+	// notice how it _doesn't_ match foo (or bar) in foobar, the trie will always match the maximum (ie. longest) search value. This is the magic of tries 🧙‍♂️
+
+	assertLenString(t, results, 7)
+	assertEqualString(t, "one", results[0])
+	assertEqualString(t, "foo", results[1])
+	assertEqualString(t, "one", results[2])
+	assertEqualString(t, "bar", results[3])
+	assertEqualString(t, "one", results[4])
+	assertEqualString(t, "foobar", results[5])
+	assertEqualString(t, "one", results[6])
+}
