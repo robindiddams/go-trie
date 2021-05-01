@@ -18,6 +18,6 @@ results := myTrie.SearchString("there should be one foo, one bar, one foobar, an
 
 ```
 
-Notice how it _doesn't_ match foo (or bar) in foobar, the trie will always match the maximum (ie. longest) search value. This is the magic of tries 🧙‍♂️
+Notice how it _doesn't_ match the foo (or the bar) _inside_ foobar, the trie will always match the maximum (ie. longest) search value. This is the magic of tries 🧙‍♂️
 
 PRs welcome (especially ones with emojis 🙌)!
